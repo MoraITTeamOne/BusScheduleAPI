@@ -1,0 +1,15 @@
+{
+  "name": "BusScheduleAPI",
+  "version": "0.0.0",
+  "description": "For 2nd yer software project",
+  "main": "app.js",
+  "author": {
+    "name": "Chanaka Fernando",
+	"email" :"<nuwan.c.fernando@gmail.com>"
+  },
+  "dependencies": {
+    "body-parser": "^1.8.4",
+    "express": "^4.14.0",
+    "path": "^0.12.7"
+  }
+}
