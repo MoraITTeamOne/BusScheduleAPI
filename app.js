@@ -1,7 +1,6 @@
 ﻿
 var express = require('express');
 var bodyParser = require('body-parser');
-var fs = require('fs');
 var services = require('./services/services.js');
 var config = require('./config.json'); 
 var app = express();
@@ -19,4 +18,4 @@ app.listen(config.SERVER_PORT, function (res, err) {
         res.status(500);
     }
     console.log('BusSchedule is listening on port ' + config.SERVER_PORT);
-})
+});

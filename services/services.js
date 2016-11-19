@@ -1,7 +1,7 @@
 
-var fs = require('fs');
 var path = require('path');
-var buslist = require('../res/BusSchedule.json');
+//var buslist = require('../scheduleData/root_01.JSON');
+var selectedSchedule =require('../control/controller.js');
 
 
 /*
@@ -60,7 +60,7 @@ module.exports.serviceCall = function (app) {
     // * To get a Specific bus Schedule Row this get method is used
     app.get('/routes/byid/:id', function (req, res) {
         for (i = 0; i < buslist.length; i++) {
-            var string_a = buslist[i].b_id.toUpperCase();
+            var string_a = buslist[i].BusId.toUpperCase();
             var string_b = req.params.id.toUpperCase();
             if (string_a === string_b) {
                 return res.json({
@@ -78,11 +78,11 @@ module.exports.serviceCall = function (app) {
 
 
     // *to retreve  Specific set of buses by start location
-    app.get('/routes/bystartplace/:s_location', function (req, res) {
+    app.get('/routes/bystartplace/:StartLocation', function (req, res) {
         var result = [];
         for (i = 0; i < buslist.length; i++) {
-            var str1 = buslist[i].s_location.toUpperCase();
-            var str2 = req.params.s_location.toUpperCase();
+            var str1 = buslist[i].StartLocation.toUpperCase();
+            var str2 = req.params.StartLocation.toUpperCase();
             if (str1 == str2) {
                 result.push(buslist[i]);                       //add results into json array
                 }
@@ -100,11 +100,11 @@ module.exports.serviceCall = function (app) {
 
 
     // *to retreve  Specific set of buses by root number
-    app.get('/routes/byrootno/:root_no', function (req, res) {
+    app.get('/routes/byrootno/:RootNo', function (req, res) {
         var result = [];
         for (i = 0; i < buslist.length; i++) {
-            var str1 = buslist[i].root_no.toUpperCase();
-            var str2 = req.params.root_no.toUpperCase();
+            var str1 = buslist[i].RootNo.toUpperCase();
+            var str2 = req.params.RootNo.toUpperCase();
             if (str1==str2) {
                 result.push( buslist[i] );
             }
@@ -120,6 +120,29 @@ module.exports.serviceCall = function (app) {
         }
     });
 
+    //To retreve all the bus list behind the asked time from 10min
+    app.get('/routes/sugestion/:root/:location/:time',function(req,res){
+
+        var suggestedList=[];
+        var rootNo = req.params.root.toUpperCase();
+        var time=req.params.time.toUpperCase();
+        var location=req.params.location.toUpperCase();
+        var file = selectedSchedule.selectScheduleFile(rootNo);
+       // var i=1;
+        for( var i=0;i<file.length;i++){
+            //for(j=0;j<file[i].StopPoints.length;j++) {
+                // if(location==file[i].StopPoints[i]){
+                console.log(file[1].StopPoints[i].Place);
+           // }
+           // }
+        }
 
 
-}
+        //console.log(selectedSchedule.selectScheduleFile(rootNo));
+        return res.json({"Error":false,"Content":req.params.location ,"content2":req.params.time ,"content3":req.params.root});
+    });
+
+
+
+
+};

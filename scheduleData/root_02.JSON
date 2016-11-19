@@ -1,0 +1,74 @@
+[
+  {
+    "BusId": "AA2000",
+    "RootNo": "A02",
+    "StartLocation": "colombo",
+    "StartTime": "12.00",
+    "Destination": "mathara",
+    "ArrTime": "5.00",
+    "StopPoints": [
+      {
+        "Place": "Panadura",
+        "ArrTime": "13.30"
+      },
+      {
+        "Place": "Kaluthara",
+        "ArrTime": "14.00"
+      },
+      {
+        "Place": "Aluthgama",
+        "ArrTime": "14.30"
+      },
+      {
+        "Place": "Ambalangoda",
+        "ArrTime": "15.30"
+      },
+      {
+        "Place": "Hikkaduwa",
+        "ArrTime": "16.00"
+      },
+      {
+        "Place": "Galle",
+        "ArrTime": "16.30"
+      }
+    ]
+  },
+  {
+    "BusId": "AB5020",
+    "RootNo": "A02",
+    "StartLocation": "Galle",
+    "StartTime": "12.00",
+    "Destination": "Colombo",
+    "ArrTime": "16.00",
+    "StopPoints": [
+      {
+        "Place": "Hikkaduwa",
+        "ArrTime": "13.00"
+      },
+      {
+        "Place": "Ambalangoda",
+        "ArrTime": "13.30"
+      },
+      {
+        "Place": "Aluthgama",
+        "ArrTime": "14.10"
+      },
+      {
+        "Place": "Panadura",
+        "ArrTime": "15.00"
+      },
+      {
+        "Place": "Moratuwa",
+        "ArrTime": "15.20"
+      },
+      {
+        "Place": "Rathmalana",
+        "ArrTime": "15.30"
+      },
+      {
+        "Place": "Dehiwala",
+        "ArrTime": "15.40"
+      }
+    ]
+  }
+]
