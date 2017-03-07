@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <h1>Index File</h1>
+    <p>
+    <h4>Name : Bus Scedule API</h4>
+    <h4>Version : 1.0.0</h4>
+    <h4>Base URL : http://35.166.53.131:8000/</h4>
+    <h5>Posible CRUD operations</h5>
+    </p>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th style="width: 5%;">#</th>
+            <th style="width: 50%;">Path URL</th>
+            <th style="width: 8%;">Method</th>
+            <th style="width: 37%;">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>/</td>
+            <td>GET</td>
+            <td>Index page(This Page)</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>/get/all-bus</td>
+            <td>GET</td>
+            <td>Retreve All Buses</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>/get/all-driver</td>
+            <td>GET</td>
+            <td>Retreve All Drivers</td>
+        </tr>
+
+
+        <tr>
+            <td>4</td>
+            <td>/get/all-conductor</td>
+            <td>GET</td>
+            <td>Retreve All Conductors</td>
+        </tr>
+
+        <tr>
+            <td>5</td>
+            <td>/get/bus/&lt Plate Number &gt</td>
+            <td>GET</td>
+            <td>Retreve ditails of a Bus by specific Plate No</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>/routes/byid/&lt Bus ID &gt</td>
+            <td>GET</td>
+            <td>Retreve records by specific Bus Number</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>/get/conductor/&lt NTC Number &gt</td>
+            <td>GET</td>
+            <td>Retreve data from Conductor NTC</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>/get/driver/&lt NTC Number &gt</td>
+            <td>GET</td>
+            <td>Retreve data from Driver NTC</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>/get/summary</td>
+            <td>GET</td>
+            <td>Get Overview of bus Schedule</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>/get/future-schedule/&lt startLocation &gt /&lt endLocation &gt/&lt Start Time &gt </td>
+            <td>GET</td>
+            <td>Get the Next Possible Busses in 15 Min</td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>/get/post-schedule/&lt startLocation &gt /&lt endLocation &gt/&lt Start Time &gt </td>
+            <td>GET</td>
+            <td>Get the Past Possible Busses in 15 Min</td>
+        </tr>
+
+
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
