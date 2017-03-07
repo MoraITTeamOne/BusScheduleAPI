@@ -2,7 +2,7 @@
  * Created by Chanaka Fernando on 2/10/2017.
  */
 var utills = require('../utills');
-var collectionModels = require('../dataModels/collectionModles');
+var collectionModels = require('../dataModels/collectionModels');
 
 
 /**

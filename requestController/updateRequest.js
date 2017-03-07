@@ -3,7 +3,7 @@
  */
 
 var utills = require('../utills');
-var collectionModel = require('../dataModels/collectionModles');
+var collectionModel = require('../dataModels/collectionModels');
 
 
 module.exports.updateMethods = function (app) {

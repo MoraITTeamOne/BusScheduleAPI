@@ -1,6 +1,6 @@
 ﻿﻿var express = require('express');
 var bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser');
+//var cookieParser = require('cookie-parser');
 
 var config = require('./app-config.json');
 var getRequest = require('./requestController/getRequest');

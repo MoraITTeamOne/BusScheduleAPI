@@ -5,7 +5,7 @@
 var utills = require('../utills');
 var subFunctions = require('./subFunctions');
 var path = require('path');
-var collectionModels = require('../dataModels/collectionModles');
+var collectionModels = require('../dataModels/collectionModels');
 
 /**
  * all the get request from the user, is handled here

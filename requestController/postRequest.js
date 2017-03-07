@@ -2,7 +2,7 @@
  * Created by Chanaka Fernando on 1/16/2017.
  */
 var utills = require('../utills');
-var collectionModel = require('../dataModels/collectionModles');
+var collectionModel = require('../dataModels/collectionModels');
 
 
 module.exports.postMethods = function (app) {
