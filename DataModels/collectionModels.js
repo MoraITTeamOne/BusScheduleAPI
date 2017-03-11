@@ -12,10 +12,10 @@ var Schema = mongoose.Schema;
  * create a colection structure for a newly sent bus
  */
 var bus =new Schema({
-    ID        :{type:String, required:true,unique:true},
-    D_NTC     :{type:String, required:true},
-    C_NTC     :{type:String, required:true},
-    RouteNo   :{type:String, required:true},
+    ID        :{type:String, required:true,unique:true,max:6},
+    D_NTC     :{type:String, required:true,max:6},
+    C_NTC     :{type:String, required:true,max:6},
+    RouteNo   :{type:String, required:true,min:2},
     BusType   :String,
     Rank      :Number
 });
@@ -25,15 +25,16 @@ exports.Buses = Buses;
 
 /**
  * create the collection structure for newly sent conductor
+ * DOB type change
  */
 var conductor=new Schema({
-    NIC       :{type:String, required:true,unique:true},
-    NTC       :{type:String, required:true,unique:true},
+    NIC       :{type:String, required:true,unique:true,max:10},
+    NTC       :{type:String, required:true,unique:true,max:6},
     Name      :{
         fName:String,
         lName:String
     },
-    DOB       :Date,
+    DOB       :String,
     Tel_No    :String,
     Add       :String,
     Rank      :Number
@@ -44,15 +45,16 @@ exports.Conductors =Conductors;
 
 /**
  * create  the collection structure for newly send Driver
+ * DOB type change
  */
 var driver = new Schema({
-    NIC       :{type:String, required:true,unique:true},
-    NTC       :{type:String, required:true,unique:true},
+    NIC       :{type:String, required:true,unique:true,max:10},
+    NTC       :{type:String, required:true,unique:true,max:6},
     Name      :{
         fName:String,
         lName:String
     },
-    DOB       :Date,
+    DOB       :String,
     Tel_No    :String,
     Add       :String,
     Rank      :Number
@@ -69,8 +71,8 @@ var place = new Schema({
 });
 
 var Schedule = new Schema({
-    Id         :{type:String, required:true},
-    Route     :{type:String, required:true},
+    Id         :{type:String, required:true,max:6},
+    Route     :{type:String, required:true,min:2},
     stopPoints  :[place]
 });
 exports.BusSchedules= mongoose.model('BusSchedules',Schedule);
@@ -87,7 +89,7 @@ var geoData = new Schema({
 });
 
 var route = new Schema({
-    RouteNo: {type: String, require: true, unique: true},
+    RouteNo: {type: String, require: true, unique: true,min:2},
     Descriptions: String,
     StopPoints: [geoData]
 });

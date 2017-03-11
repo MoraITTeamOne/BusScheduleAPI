@@ -6,7 +6,7 @@ var collectionModel = require('../dataModels/collectionModels');
 
 
 module.exports.postMethods = function (app) {
-    utills.logger(__dirname + "\\getRequest.js", 200);
+    utills.logger(__dirname + "\\postRequest.js", 200);
 
 
     /**
@@ -21,14 +21,16 @@ module.exports.postMethods = function (app) {
             D_NTC  : req.body.driverNTC,
             C_NTC  : req.body.conductorNTC,
             RouteNo: req.body.routeNo,
-            Type   : req.body.busType,
+            BusType   : req.body.busType,
             Rank   : req.body.busRank
         });
         newBus.save(function (err) {
             if (err) {
-                utills.logger("Document is not saved", 500, err);
+                utills.logger("Document is not saved",500, err);
+                utills.sendResponce(200,res,err);
             } else {
                 utills.logger('Document is saved successfully', 200);
+                utills.sendResponce(200,res);
             }
         });
         res.end();
@@ -58,9 +60,10 @@ module.exports.postMethods = function (app) {
         newDriver.save(function (err) {
             if (err) {
                 utills.logger("Document is not saved", 500, err);
+                utills.sendResponce(200,res,err);
             } else {
                 utills.logger('Document is saved successfully', 200);
-
+                utills.sendResponce(200,res);
             }
         });
         res.end();
@@ -89,8 +92,10 @@ module.exports.postMethods = function (app) {
         newConductor.save(function (err) {
             if (err) {
                 utills.logger("Document is not saved", 500, err);
+                utills.sendResponce(200,res,err);
             } else {
                 utills.logger('Document is saved successfully', 200);
+                utills.sendResponce(200,res);
             }
         });
         res.end();
@@ -115,7 +120,7 @@ module.exports.postMethods = function (app) {
         newSchedule.save(function (err) {
             if (err) {
                 utills.logger("Document is not saved", 500, err);
-                utills.sendResponce(500,res,err);
+                utills.sendResponce(200,res,err);
             } else {
                 utills.logger('Document is saved successfully', 200);
                 utills.sendResponce(200,res);

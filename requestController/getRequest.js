@@ -39,11 +39,10 @@ module.exports.getMethods = function (app) {
         collectionModels.Buses.find({}, Projection, function (err, buse_id) {
             if (err) {
                 utills.logger("error occured :", 500, err);
-                res.setHeader('Content-Type', 'application/json');
                 res.status(500).send({status: 'Error', content: err.name});
             } else {
                 res.setHeader('Content-Type', 'application/json');
-                res.status(200).send({status: 'success', content: buse_id});
+                utills.sendResponce(200,res,err,buse_id);
                 utills.logger("succesfuly send the bus id list", 200);
             }
         });
@@ -107,7 +106,7 @@ module.exports.getMethods = function (app) {
      * send specific bus data by given bus ID
      */
     app.get('/get/bus/:id', function (req, res) {
-        utills.logger("successfuly accesed " + req.url, 200);
+        utills.logger("successfully accessed " + req.url, 200);
         utills.DBConnection();
         var Selection = {
             ID: req.params.id
@@ -134,7 +133,7 @@ module.exports.getMethods = function (app) {
      * send specific conductor data by given NTC ID
      */
     app.get('/get/conductor/:ntc', function (req, res) {
-        utills.logger("successfuly accesed " + req.url, 200);
+        utills.logger("successfully accessed " + req.url, 200);
         utills.DBConnection();
         var Selection = {
             NTC: req.params.ntc
@@ -161,7 +160,7 @@ module.exports.getMethods = function (app) {
      * send a specific driver data by given drver NTC
      */
     app.get('/get/driver/:ntc', function (req, res) {
-        utills.logger('successfully accesed ' + req.url, 200);
+        utills.logger('successfully accessed ' + req.url, 200);
         utills.DBConnection();
         var Selection = {
             NTC: req.params.ntc
@@ -179,7 +178,7 @@ module.exports.getMethods = function (app) {
             else {
                 res.setHeader('Content-Type', 'application/json');
                 res.status(200).send({status: 'success', content: driver});
-                utills.logger("succesfuly send the Driver ", 200);
+                utills.logger("succesfully send the Driver ", 200);
             }
         });
 
@@ -259,7 +258,7 @@ module.exports.getMethods = function (app) {
         };
         var sort = {
             skip: 0,
-            limit: 1,
+            limit: 5,
             sort: {Rank: 1}
         };
         collectionModels.Driver.find({}, projForDrivers, sort, function (err, drivers) {
@@ -280,6 +279,7 @@ module.exports.getMethods = function (app) {
                 res.setHeader('Content-Type', 'application/json');
                 res.status(200).send({status: 'success', content: array});
                 utills.logger("succesfuly send the array list ", 200);
+                //console.log(array);
             }
 
         });
@@ -348,6 +348,7 @@ module.exports.getMethods = function (app) {
                         res.status(200).send({status: 'success', content: list});
                         utills.logger("succesfuly send the array list ", 200);
 
+
                     }
 
                 });
@@ -358,3 +359,7 @@ module.exports.getMethods = function (app) {
 
 
 };
+
+
+
+//tested 100% work

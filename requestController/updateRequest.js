@@ -24,7 +24,7 @@ module.exports.updateMethods = function (app) {
             D_NTC  : req.body.driverNTC,
             C_NTC  : req.body.conductorNTC,
             RouteNo: req.body.routeNo,
-            Type   : req.body.busType,
+            BusType: req.body.busType,
             Rank   : req.body.busRank
         };
 
@@ -40,7 +40,7 @@ module.exports.updateMethods = function (app) {
                 utills.sendResponce(500,res,err);
             }else {
                 utills.logger('Document is saved successfully', 200);
-                utills.sendResponce(200,res,'',list);
+                utills.sendResponce(200,res,err,list);
             }
         });
     });
