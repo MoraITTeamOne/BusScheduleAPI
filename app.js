@@ -1,6 +1,6 @@
 ﻿﻿var express = require('express');
 var bodyParser = require('body-parser');
-//var cookieParser = require('cookie-parser');
+
 
 var config = require('./app-config.json');
 var getRequest = require('./requestController/getRequest');
@@ -13,7 +13,7 @@ var utills = require('./utills');
 var app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-//app.use(cookieParser());
+
 
 
 
