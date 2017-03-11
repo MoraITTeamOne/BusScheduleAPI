@@ -124,7 +124,6 @@ function sendResponce(statusCode,res,err,result) {
         });
 
     } else if(result){
-        res.setHeader('Content-Type', 'application/json');
         res.status(statusCode).send({
             status: statusCode,
             message: "success",
@@ -132,7 +131,6 @@ function sendResponce(statusCode,res,err,result) {
 
         });
     }else {
-        res.setHeader('Content-Type', 'application/json');
         res.status(statusCode).send({
             status: statusCode,
             message: "success"

@@ -50,7 +50,7 @@ module.exports.updateMethods = function (app) {
     /**
      * to update a Driver by his NTC
      */
-    app.post('/update/driver/:ntc',function (req,res) {
+    app.post('/update/bus/driver/:ntc',function (req,res) {
         utills.logger('sucessfully accessed ' + req.url, 200);
         utills.DBConnection();
         var selection={
@@ -91,7 +91,7 @@ module.exports.updateMethods = function (app) {
     /**
      * to update a Conductor by his NTC
      */
-    app.post('/update/conductor/:ntc',function (req,res) {
+    app.post('/update/bus/conductor/:ntc',function (req,res) {
         utills.logger('sucessfully accessed ' + req.url, 200);
         utills.DBConnection();
         var selection={
@@ -132,7 +132,7 @@ module.exports.updateMethods = function (app) {
     /**
      * to update a Route by Its Route number
      */
-    app.post('/update/route/:routes',function (req,res) {
+    app.post('/update/bus/route/:routes',function (req,res) {
         utills.logger('sucessfully accessed ' + req.url, 200);
         utills.DBConnection();
         var selection={
