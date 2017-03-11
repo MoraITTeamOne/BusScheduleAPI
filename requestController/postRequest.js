@@ -16,6 +16,7 @@ module.exports.postMethods = function (app) {
         utills.logger('sucessfully accessed ' + req.url, 200);
 
         utills.DBConnection();
+        console.log(req.body);
         var newBus = new collectionModel.Buses({
             ID     : req.body.busId,
             D_NTC  : req.body.driverNTC,
@@ -33,7 +34,7 @@ module.exports.postMethods = function (app) {
                 utills.sendResponce(200,res);
             }
         });
-        res.end();
+
 
     });
 
@@ -66,7 +67,6 @@ module.exports.postMethods = function (app) {
                 utills.sendResponce(200,res);
             }
         });
-        res.end();
     });
 
 
@@ -98,7 +98,7 @@ module.exports.postMethods = function (app) {
                 utills.sendResponce(200,res);
             }
         });
-        res.end();
+
     });
 
 
@@ -126,7 +126,7 @@ module.exports.postMethods = function (app) {
                 utills.sendResponce(200,res);
             }
         });
-        res.end();
+
 
     });
 
@@ -147,7 +147,7 @@ module.exports.postMethods = function (app) {
                 utills.sendResponce(500,res,err);
             } else {
                 utills.logger('Document is saved successfully', 200);
-                utills.sendResponce(200,res);
+                utills.sendResponce(200,res,err);
             }
         });
     });
