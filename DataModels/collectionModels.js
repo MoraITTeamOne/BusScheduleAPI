@@ -15,7 +15,7 @@ var bus =new Schema({
     ID        :{type:String, required:true,unique:true,max:6},
     D_NTC     :{type:String, required:true,max:6},
     C_NTC     :{type:String, required:true,max:6},
-    RouteNo   :{type:String, required:true,min:2},
+    RouteNo   :{type:String, required:true,min:1},
     BusType   :String,
     Rank      :Number
 });
@@ -72,7 +72,7 @@ var place = new Schema({
 
 var Schedule = new Schema({
     Id         :{type:String, required:true,max:6},
-    Route     :{type:String, required:true,min:2},
+    Route     :{type:String, required:true,min:1},
     stopPoints  :[place]
 });
 exports.BusSchedules= mongoose.model('BusSchedules',Schedule);
@@ -89,7 +89,7 @@ var geoData = new Schema({
 });
 
 var route = new Schema({
-    RouteNo: {type: String, require: true, unique: true,min:2},
+    RouteNo: {type: String, require: true, unique: true,min:1},
     Descriptions: String,
     StopPoints: [geoData]
 });
