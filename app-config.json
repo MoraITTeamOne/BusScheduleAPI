@@ -1,6 +1,6 @@
 {
   "SERVER_PORT": 8000,
-  "DB_HOST": "52.25.221.233",
+  "DB_HOST": "52.88.190.56",
   "DB_PORT":  27017,
   "DB_NAME": "BusScheduleDB"
 }
