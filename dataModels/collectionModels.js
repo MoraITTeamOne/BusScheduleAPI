@@ -59,7 +59,7 @@ var driver = new Schema({
     Add       :String,
     Rank      :Number
 });
-exports.Driver = mongoose.model('Driver',driver);
+exports.Driver = mongoose.model('Drivers',driver);
 
 
 /**
