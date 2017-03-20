@@ -23,7 +23,7 @@ module.exports.postMethods = function (app) {
             C_NTC  : req.body.conductorNTC,
             RouteNo: req.body.routeNo,
             BusType   : req.body.busType,
-            Rank   : req.body.busRank
+            Rank   : 0
         });
         newBus.save(function (err) {
             if (err) {
@@ -48,7 +48,7 @@ module.exports.postMethods = function (app) {
 
         console.log(req.body);
         utills.DBConnection();
-        var newDriver = collectionModel.Driver({
+        var newDriver = collectionModel.Drivers({
             NIC: req.body.driverNIC,
             NTC: req.body.driverNTC,
             Name: {
@@ -58,7 +58,7 @@ module.exports.postMethods = function (app) {
             DOB: req.body.driverDOB,
             Tel_No: req.body.driverTP,
             Add: req.body.driverAddress,
-            Rank: req.body.driverRank
+            Rank: 0
         });
         newDriver.save(function (err) {
             if (err) {
@@ -89,7 +89,7 @@ module.exports.postMethods = function (app) {
             DOB: req.body.conductorDOB,
             Tel_No: req.body.conductorTP,
             Add: req.body.conductorAddress,
-            Rank: req.body.conductorRank
+            Rank: 0
         });
         newConductor.save(function (err) {
             if (err) {
