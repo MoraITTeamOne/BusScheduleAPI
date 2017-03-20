@@ -85,7 +85,7 @@ module.exports.getMethods = function (app) {
             __v: false
 
         };
-        collectionModels.Driver.find({}, Projection, function (err, list) {
+        collectionModels.Drivers.find({}, Projection, function (err, list) {
             if (err) {
                 utills.logger("error occured :", 500, err);
                 res.setHeader('Content-Type', 'application/json');
@@ -169,7 +169,7 @@ module.exports.getMethods = function (app) {
             __v: false,
             _id: false
         };
-        collectionModels.Driver.find(Selection, Projection, function (err, driver) {
+        collectionModels.Drivers.find(Selection, Projection, function (err, driver) {
             if (err) {
                 utills.logger('error occured :', 500, err);
                 res.setHeader('Content-Type', 'application/json');
@@ -261,7 +261,7 @@ module.exports.getMethods = function (app) {
             limit: 5,
             sort: {Rank: 1}
         };
-        collectionModels.Driver.find({}, projForDrivers, sort, function (err, drivers) {
+        collectionModels.Drivers.find({}, projForDrivers, sort, function (err, drivers) {
             if (err) {
                 utills.logger("error occured :", 500, err);
                 error = err;
