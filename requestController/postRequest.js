@@ -45,6 +45,8 @@ module.exports.postMethods = function (app) {
     app.post('/post/driver', function (req, res) {
         utills.logger('sucessfully accessed ' + req.url, 200);
 
+
+        console.log(req.body);
         utills.DBConnection();
         var newDriver = collectionModel.Driver({
             NIC: req.body.driverNIC,
