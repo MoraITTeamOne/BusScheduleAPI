@@ -243,13 +243,13 @@ function getFutureBusList(array,reqTime,sLoc,callback){
                                 console.log(nTime+" "+timeGap+" "+startPlace); // to be removed
                                 console.log(fullArray[j].Id);                  // to be removed
                                 result.push(fullArray[j]);
-                               /*var busId =fullArray[j].Id;
+                                var busId =fullArray[j].Id;
                                 var RouteNo =fullArray[j].Route;
-                                var StartL=fullArray[j].StopPoints[0].place;
-                                var StartT=fullArray[j].StopPoints[0].arrivalTime;
-                                var EndL=fullArray[j].StopPoints[end -1].place;
-                                var EndT=fullArray[j].StopPoints[end-1].arrivalTime;*/
-                                //result.push({busId:busId,RouteNo:RouteNo,StartLocation:StartL,StartTime:StartT,EndLocation:EndL,EndTime:EndT});
+                                var StartL=fullArray[j].stopPoints[0].place;
+                                var StartT=fullArray[j].stopPoints[0].arrivalTime;
+                                var EndL=fullArray[j].stopPoints[end -1].place;
+                                var EndT=fullArray[j].stopPoints[end-1].arrivalTime;
+                                result.push({busId:busId,RouteNo:RouteNo,StartLocation:StartL,StartTime:StartT,EndLocation:EndL,EndTime:EndT});
                             }
                         }
 
