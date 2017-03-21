@@ -242,14 +242,14 @@ function getFutureBusList(array,reqTime,sLoc,callback){
                             if((timeGap <= 15 && timeGap >=0) && (startPlace === sLocation)){
                                 console.log(nTime+" "+timeGap+" "+startPlace); // to be removed
                                 console.log(fullArray[j].Id);                  // to be removed
-                                //result.push(fullArray[j]);
-                                var busId =fullArray[j].TrainId;
+                                result.push(fullArray[j]);
+                               /* var busId =fullArray[j].busId;
                                 var RouteNo =fullArray[j].Route;
                                 var StartL=fullArray[j].StopPoints[0].place;
                                 var StartT=fullArray[j].StopPoints[0].arrivalTime;
                                 var EndL=fullArray[j].StopPoints[end -1].place;
-                                var EndT=fullArray[j].StopPoints[end-1].arrivalTime;
-                                result.push({busId:busId,RouteNo:RouteNo,StartLocation:StartL,StartTime:StartT,EndLocation:EndL,EndTime:EndT});
+                                var EndT=fullArray[j].StopPoints[end-1].arrivalTime;*/
+                                //result.push({busId:busId,RouteNo:RouteNo,StartLocation:StartL,StartTime:StartT,EndLocation:EndL,EndTime:EndT});
                             }
                         }
 
