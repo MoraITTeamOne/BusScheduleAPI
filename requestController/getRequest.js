@@ -358,11 +358,12 @@ module.exports.getMethods = function (app) {
     });
 
 
-    app.get('/get/posible/bus/:startLocation/:endLocation/:sTime',function (req,res) {
+    app.get('/get/possible/bus/:startLocation/:endLocation/:sTime',function (req,res) {
         var sLocation =   req.params.startLocation;
         var eLocation = req.params.endLocation;
         var sTime      = parseInt(req.params.sTime);
 
+        console.log("get posible bus ist");
         subFunctions.getRoute(sLocation ,eLocation,function (err,routeList) {
             var routes = routeList;
             if(err){
