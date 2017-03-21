@@ -242,7 +242,7 @@ function getFutureBusList(array,reqTime,sLoc,callback){
                             if((timeGap <= 15 && timeGap >=0) && (startPlace === sLocation)){
                                 console.log(nTime+" "+timeGap+" "+startPlace); // to be removed
                                 console.log(fullArray[j].Id);                  // to be removed
-                                result.push(fullArray[j]);
+                                //result.push(fullArray[j]);
                                 var busId =fullArray[j].Id;
                                 var RouteNo =fullArray[j].Route;
                                 var StartL=fullArray[j].stopPoints[0].place;
