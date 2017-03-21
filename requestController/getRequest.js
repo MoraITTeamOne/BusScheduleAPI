@@ -337,6 +337,38 @@ module.exports.getMethods = function (app) {
                 utills.logger("Error happen :",500,err);
             }else {
                 console.log(routes);
+                subFunctions.getFutureBusScheduleList(routes,sTime,sLocation,function (err,list ){
+                    if(err){
+                        utills.logger("Error happen :",500,err);
+                        res.setHeader('Content-Type', 'application/json');
+                        res.status(200).send({status: 'Error', content: ""});
+                    }else{
+                        //console.log(list);
+                        res.setHeader('Content-Type', 'application/json');
+                        res.status(200).send({status: 'success', content: list});
+                        utills.logger("succesfuly send the array list ", 200);
+
+
+                    }
+
+                });
+            }
+        });
+
+    });
+
+
+    app.get('/get/posible/bus/:startLocation/:endLocation/:sTime',function (req,res) {
+        var sLocation =   req.params.startLocation;
+        var eLocation = req.params.endLocation;
+        var sTime      = parseInt(req.params.sTime);
+
+        subFunctions.getRoute(sLocation ,eLocation,function (err,routeList) {
+            var routes = routeList;
+            if(err){
+                utills.logger("Error happen :",500,err);
+            }else {
+                console.log(routes);
                 subFunctions.getFutureBusList(routes,sTime,sLocation,function (err,list ){
                     if(err){
                         utills.logger("Error happen :",500,err);
