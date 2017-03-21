@@ -143,7 +143,7 @@ exports.getPastBusList = getPastBusList;
  * @param sLoc      :start location
  * @param callback  :callback function to return Buslist
  */
-function getFutureBusList(array,reqTime,sLoc,callback){
+function getFutureBusScheduleList(array,reqTime,sLoc,callback){
     var fullArray=[];
     var result=[];
     var sLocation =sLoc.toUpperCase();
@@ -180,6 +180,76 @@ function getFutureBusList(array,reqTime,sLoc,callback){
                                 console.log(nTime+" "+timeGap+" "+startPlace); // to be removed
                                 console.log(fullArray[j].Id);                  // to be removed
                                 result.push(fullArray[j]);
+                            }
+                        }
+
+                    }
+                    if(result.length == 0){
+                        utills.logger("No item found with start time and start location",404,err);
+                        callback(err,result);
+                    }else{
+                        utills.logger("Buslist returned from getFutureBusList",200);
+                        callback(err,result);
+                    }
+
+                }else {
+                    count++;
+                }
+            }
+        });
+
+    } //end of the for loop
+
+}
+exports.getFutureBusScheduleList = getFutureBusScheduleList;
+
+
+
+
+function getFutureBusList(array,reqTime,sLoc,callback){
+    var fullArray=[];
+    var result=[];
+    var sLocation =sLoc.toUpperCase();
+    var count =0;
+    utills.logger("successfuly accesed getFutureBusList", 200);
+    utills.DBConnection();
+
+    for(var i=0;i<array.length ;i++){
+        var sellection = {
+            Route : array[i]
+        };
+        var projection = {
+            _id : false,
+            _v :false
+        };
+        collectionModels.BusSchedules.find(sellection,projection, {}, function (err, datalist) {
+            if (err) {
+                utills.logger("error occured :", 500, err);
+            } else {
+                var items = 0;
+                while (datalist.length -1 >= items){
+                    fullArray.push(datalist[items]);
+                    items++;
+                }
+                if(array.length-1 == count){
+                    for(var j=0;j< fullArray.length;j++){
+                        var end = fullArray[j].stopPoints.length;
+                        for(var k =0;k < end;k++){
+                            var nTime = parseInt(fullArray[j].stopPoints[k].arrivalTime);
+                            var timeGap = (nTime - reqTime );
+                            var startPlace = (fullArray[j].stopPoints[k].place).toUpperCase();
+
+                            if((timeGap <= 15 && timeGap >=0) && (startPlace === sLocation)){
+                                console.log(nTime+" "+timeGap+" "+startPlace); // to be removed
+                                console.log(fullArray[j].Id);                  // to be removed
+                                //result.push(fullArray[j]);
+                                var busId =fullArray[j].TrainId;
+                                var RouteNo =fullArray[j].Route;
+                                var StartL=fullArray[j].StopPoints[0].place;
+                                var StartT=fullArray[j].StopPoints[0].arrivalTime;
+                                var EndL=fullArray[j].StopPoints[end -1].place;
+                                var EndT=fullArray[j].StopPoints[end-1].arrivalTime;
+                                result.push({busId:busId,RouteNo:RouteNo,StartLocation:StartL,StartTime:StartT,EndLocation:EndL,EndTime:EndT});
                             }
                         }
 

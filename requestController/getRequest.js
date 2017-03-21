@@ -336,7 +336,7 @@ module.exports.getMethods = function (app) {
             if(err){
                 utills.logger("Error happen :",500,err);
             }else {
-                console.log(routes);  //remove after compleation
+                console.log(routes);
                 subFunctions.getFutureBusList(routes,sTime,sLocation,function (err,list ){
                     if(err){
                         utills.logger("Error happen :",500,err);
